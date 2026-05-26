@@ -1,0 +1,256 @@
+{
+  "profile": {
+    "name": "Gurnoor Kaur",
+    "shortName": "Noor",
+    "tagline": "Architecting scalable backend automation and bleeding-edge machine learning pipelines.",
+    "role": "Aspiring Software Engineer",
+    "specialization": "Distributed Systems & Machine Learning",
+    "location": "Chandigarh, India",
+    "yearsOfExperience": 1,
+    "bio": "I am a Computer Science Engineer at Punjab Engineering College (graduating 2027) with a strong passion for building scalable software, automated pipelines, and machine learning applications. Proficient in Python, C++, AWS, and REST APIs, I focus on optimizing complex enterprise processes through automated, data-driven, and highly performant solutions.",
+    "avatarSvg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-full\"><defs><linearGradient id=\"avatarGrad\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\"><stop offset=\"0%\" stop-color=\"#8B5CF6\"/><stop offset=\"50%\" stop-color=\"#EC4899\"/><stop offset=\"100%\" stop-color=\"#F97316\"/></linearGradient><radialGradient id=\"avatarGlow\" cx=\"50%\" cy=\"50%\" r=\"50%\"><stop offset=\"0%\" stop-color=\"#8B5CF6\" stop-opacity=\"0.4\"/><stop offset=\"100%\" stop-color=\"#0C0C0C\" stop-opacity=\"0\"/></radialGradient></defs><circle cx=\"50%\" cy=\"50%\" r=\"45\" fill=\"url(#avatarGlow)\"/><circle cx=\"50%\" cy=\"50%\" r=\"35\" fill=\"#161616\" stroke=\"url(#avatarGrad)\" stroke-width=\"2\"/><path d=\"M38 45C38 38.3726 43.3726 33 50 33C56.6274 33 62 38.3726 62 45C62 51.6274 56.6274 57 50 57C43.3726 57 38 51.6274 38 45Z\" fill=\"#222222\" stroke=\"url(#avatarGrad)\" stroke-width=\"1.5\"/><path d=\"M25 75C25 66.7157 31.7157 60 40 60H60C68.2843 60 75 66.7157 75 75V76H25V75Z\" fill=\"#222222\" stroke=\"url(#avatarGrad)\" stroke-width=\"1.5\"/><circle cx=\"45\" cy=\"43\" r=\"3\" fill=\"#EC4899\"/><circle cx=\"55\" cy=\"43\" r=\"3\" fill=\"#EC4899\"/><path d=\"M47 50C48 51 52 51 53 50\" stroke=\"#F97316\" stroke-width=\"2\" stroke-linecap=\"round\"/></svg>",
+    "avatarImage": "/avatar.png",
+    "social": {
+      "github": "https://github.com/kgurnoor",
+      "linkedin": "https://www.linkedin.com/in/gurnoor-kaur-057593213/",
+      "email": "gurnoorkaur4oct24@gmail.com",
+      "phone": "+91-7710797168",
+      "website": "https://gurnoor.net"
+    }
+  },
+  "skills": {
+    "categories": [
+      {
+        "name": "Core Languages",
+        "items": [
+          "Python",
+          "C++",
+          "C",
+          "Rust",
+          "JavaScript",
+          "TypeScript",
+          "SQL",
+          "HTML"
+        ]
+      },
+      {
+        "name": "Cloud & Serverless",
+        "items": [
+          "AWS (Lambda, S3)",
+          "Serverless Architecture",
+          "REST APIs Integration",
+          "Git / Version Control",
+          "CI/CD Workflows"
+        ]
+      },
+      {
+        "name": "AI & Machine Learning",
+        "items": [
+          "Deep Learning",
+          "Generative AI & LLMs",
+          "Natural Language Processing (NLP)",
+          "TensorFlow",
+          "LangChain",
+          "RAG Pipelines",
+          "FAISS / Vector Databases"
+        ]
+      },
+      {
+        "name": "Tools & Frameworks",
+        "items": [
+          "React (Vite)",
+          "Node.js",
+          "Streamlit",
+          "Vertex AI",
+          "Gemini API",
+          "MySQL",
+          "ChromaDB"
+        ]
+      }
+    ]
+  },
+  "experience": [
+    {
+      "company": "Cvent",
+      "role": "Automation Engineer Intern",
+      "period": "Jan 2026 - July 2026",
+      "location": "Gurugram, India",
+      "summary": "Developed Python scripts to automate enterprise workflows, built scalable REST API integrations, and maintained AWS Lambda and serverless solutions for low-latency production workloads.",
+      "highlights": [
+        "Developed Python scripts to automate enterprise workflows, enhancing operational efficiency.",
+        "Built scalable REST API integrations for real-time data exchange across enterprise systems.",
+        "Maintained AWS Lambda and serverless solutions for low-latency production workloads.",
+        "Engineered self-service tools to reduce routine task dependency and accelerate throughput."
+      ]
+    },
+    {
+      "company": "Amazon",
+      "role": "ML Summer School Trainee",
+      "period": "Jul 2025 - Aug 2025",
+      "location": "Remote",
+      "summary": "Selected from thousands of applicants nationwide for Amazon's highly competitive Machine Learning Summer School, studying industry-grade deep learning curricula.",
+      "highlights": [
+        "Selected from thousands of applicants nationwide for Amazon's highly competitive Machine Learning Summer School, demonstrating strong foundational ML and problem-solving skills.",
+        "Completed an intensive, industry-grade curriculum spanning Supervised & Unsupervised Learning, Deep Neural Networks, Generative AI & LLMs, Dimensionality Reduction, Reinforcement Learning, and Causal Inference.",
+        "Engaged with Amazon Scientists in live Q&A sessions, translating research-level ML concepts into practical engineering applications."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "id": "01",
+      "title": "Market Anomaly Detection Engine",
+      "subtitle": "Financial Market Surveillance System",
+      "description": "Built a real-time financial market surveillance system monitoring 10+ equity tickers using an ensemble of Isolation Forest, LSTM-Autoencoder, and Z-score models with majority-vote consensus, deployed on AWS-compatible serverless infrastructure.",
+      "stack": [
+        "Python",
+        "FastAPI",
+        "scikit-learn",
+        "TensorFlow",
+        "React (Vite)",
+        "TypeScript",
+        "Railway"
+      ],
+      "role": "Solo Creator",
+      "year": 2026,
+      "github": "https://github.com/kgurnoor/market-anomaly-engine",
+      "image": "",
+      "highlight": true
+    },
+    {
+      "id": "02",
+      "title": "AWS Price List Visualizer",
+      "subtitle": "Automated Cloud Dataset Visualizer",
+      "description": "Built a full-stack system designed to automate extraction and real-time visualization of large AWS pricing datasets across 200+ services, reducing analysis time by ~87% (from 15 to under 2 minutes).",
+      "stack": [
+        "Python",
+        "AWS Price List API",
+        "REST APIs",
+        "React (Vite)",
+        "TypeScript"
+      ],
+      "role": "Solo Creator",
+      "year": 2025,
+      "link": "https://aws-pricing-project-frontend.vercel.app/",
+      "github": "https://github.com/kgurnoor/aws-pricing-project",
+      "image": "",
+      "highlight": true
+    },
+    {
+      "id": "03",
+      "title": "Chat with PDF AI (RAG Pipeline)",
+      "subtitle": "Intelligent Context-Aware Query System",
+      "description": "Built a retrieval-augmented generation (RAG) pipeline featuring document chunking and vector databases (FAISS / Chroma) for context-aware querying of 100+ PDF documents, cutting search time by ~80%.",
+      "stack": [
+        "Python",
+        "LangChain",
+        "Gemini API",
+        "FAISS",
+        "Chroma",
+        "Streamlit"
+      ],
+      "role": "Solo Creator",
+      "year": 2025,
+      "link": "https://chat-with-pdfs-udouqrabxvtk5axzfotmnz.streamlit.app/",
+      "github": "https://github.com/kgurnoor/gemini_multipdf_chat",
+      "image": "",
+      "highlight": false
+    }
+  ],
+  "education": [
+    {
+      "school": "Punjab Engineering College (Deemed to be University), Chandigarh",
+      "degree": "B.Tech. Computer Science and Engineering",
+      "period": "Aug 2023 - May 2027",
+      "location": "Chandigarh, India"
+    }
+  ],
+  "achievements": [
+    {
+      "id": "a1",
+      "title": "Amazon ML Summer School Selection",
+      "date": "July 2025",
+      "description": "Selected from thousands of applicants nationwide for Amazon's highly competitive Machine Learning Summer School, demonstrating strong foundational ML capabilities.",
+      "category": "Academic"
+    },
+    {
+      "id": "a2",
+      "title": "Deep Learning Specialization (Coursera)",
+      "date": "January 2025",
+      "description": "Successfully completed the multi-course specialization covering Neural Networks, Hyperparameter Tuning, Structuring ML Projects, and Convolutional Neural Networks.",
+      "category": "Certification"
+    },
+    {
+      "id": "a3",
+      "title": "PEC ACM Board Member Appointment",
+      "date": "December 2024",
+      "description": "Appointed to the Executive Board of the Punjab Engineering College ACM Student Chapter, organizing national level hackathons and tech workshops.",
+      "category": "Leadership"
+    },
+    {
+      "id": "a4",
+      "title": "Google GenAI Study Jams 2024",
+      "date": "November 2024",
+      "description": "Successfully finished the intensive GenAI Study Jams and earned 15 verified Google developer Credly badges for cloud reasoning workflows.",
+      "category": "Certification"
+    },
+    {
+      "id": "a5",
+      "title": "Sub-Head at Women Empowerment Cell",
+      "date": "August 2024",
+      "description": "Elected as Sub-Head at Punjab Engineering College's Women Empowerment Cell, coordinating logistics, creative initiatives, and community workshops.",
+      "category": "Leadership"
+    },
+    {
+      "id": "a6",
+      "title": "Gen AI Academy Certificate (Hack2Skill)",
+      "date": "July 2024",
+      "description": "Earned professional certification in Generative AI workflows, prompting engineering, and LLM agent automations.",
+      "category": "Certification"
+    }
+  ],
+  "blogs": [
+    {
+      "slug": "aws-pricelist-visualizer-project",
+      "title": "AWS Pricelist Visualizer: My Brand New Project",
+      "date": "June 30, 2025",
+      "summary": "An in-depth look at my full-stack AWS Price List project designed to automate the extraction and real-time visualization of pricing datasets across 200+ cloud services.",
+      "link": "https://gurnoor.net/blog/aws-pricelist-visualizer-project"
+    },
+    {
+      "slug": "update-june25",
+      "title": "June Update",
+      "date": "June 15, 2025",
+      "summary": "A review of my learning progression, research logs, and new projects completed in the first half of June 2025.",
+      "link": "https://gurnoor.net/blog/update-june25"
+    },
+    {
+      "slug": "update-march25",
+      "title": "March Update",
+      "date": "March 13, 2025",
+      "summary": "Reflecting on engineering coursework, AI tool integrations, and goals for the mid-quarter SDE learning journey.",
+      "link": "https://gurnoor.net/blog/update-march25"
+    },
+    {
+      "slug": "deep-learning-course1",
+      "title": "Completed Course 1",
+      "date": "January 15, 2025",
+      "summary": "Key insights, mathematical models, and programming tasks completed during Course 1 of the Coursera Deep Learning Specialization.",
+      "link": "https://gurnoor.net/blog/deep-learning-course1"
+    },
+    {
+      "slug": "Deep-Learning-Course",
+      "title": "Started 'Deep Learning Specialization'",
+      "date": "December 6, 2024",
+      "summary": "Embarking on Andrew Ng's world-class neural networks specialization, exploring fundamental mathematics and deep weights tuning.",
+      "link": "https://gurnoor.net/blog/Deep-Learning-Course"
+    },
+    {
+      "slug": "my-first-website",
+      "title": "My First Website",
+      "date": "December 1, 2024",
+      "summary": "Building, optimizing, and deploying my very first personal website using Next.js, MDX blog engines, and serverless hosting.",
+      "link": "https://gurnoor.net/blog/my-first-website"
+    }
+  ]
+}
