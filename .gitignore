@@ -31,3 +31,11 @@ temp-build
 *.sln
 *.sw?
 .DS_Store
+
+# Large media assets and screenshots
+*.mp4
+myavatar.png
+mypic.png
+Screenshot*.png
+david-hckh.com__ref=godly.png
+
