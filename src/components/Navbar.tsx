@@ -7,52 +7,61 @@ interface NavbarProps {
   currentView: 'home' | 'achievements' | 'blog' | 'projects';
   onViewChange: (view: 'home' | 'achievements' | 'blog' | 'projects') => void;
   onSelectBlog: (blog: Blog | null) => void;
+  onPendingScroll: (id: string) => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ currentView, onViewChange, onSelectBlog }) => {
+export const Navbar: React.FC<NavbarProps> = ({ currentView, onViewChange, onSelectBlog, onPendingScroll }) => {
   const { profile } = usePortfolio();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
 
+  // HOME and ABOUT are clubbed — no separate ABOUT tab.
+  // New order: HOME, PROJECTS, ACHIEVEMENTS, SKILLS, EXPERIENCE, BLOG
   const navItems = [
     { label: "HOME", href: "#home", isAnchor: true },
-    { label: "ABOUT", href: "#about", isAnchor: true },
+    { label: "PROJECTS", href: "projects", isAnchor: false },
+    { label: "ACHIEVEMENTS", href: "achievements", isAnchor: false },
     { label: "SKILLS", href: "#skills", isAnchor: true },
     { label: "EXPERIENCE", href: "#experience", isAnchor: true },
-    { label: "ACHIEVEMENTS", href: "achievements", isAnchor: false },
     { label: "BLOG", href: "blog", isAnchor: false },
-    { label: "PROJECTS", href: "projects", isAnchor: false },
   ];
+
+  const scrollToSection = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) {
+      const top = el.getBoundingClientRect().top + window.scrollY - 80;
+      window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+      setScrolled(window.scrollY > 20);
 
       if (currentView !== "home") return;
 
-      // Determine active section based on scroll position
-      const scrollPosition = window.scrollY + 120; // offset for navbar
-      for (const item of navItems) {
-        if (!item.isAnchor) continue;
-        const targetId = item.href.slice(1);
-        const el = document.getElementById(targetId);
+      // Find the last anchor section whose top edge is within 120px of the viewport top.
+      // Iterating in DOM order (home → skills → experience) means the last match
+      // is the section currently in view.
+      const anchorItems = navItems.filter((i) => i.isAnchor);
+      let current = anchorItems[0].href.slice(1);
+
+      for (const item of anchorItems) {
+        const id = item.href.slice(1);
+        const el = document.getElementById(id);
         if (el) {
-          const top = el.offsetTop;
-          const height = el.offsetHeight;
-          if (scrollPosition >= top && scrollPosition < top + height) {
-            setActiveSection(targetId);
-            break;
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= 120) {
+            current = id;
           }
         }
       }
+
+      setActiveSection(current);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, [currentView]);
 
@@ -61,40 +70,18 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView, onViewChange, onSel
     setIsOpen(false);
 
     if (item.isAnchor) {
+      const targetId = item.href.slice(1);
       if (currentView !== "home") {
+        // Signal App to scroll after it re-renders the home view
+        onPendingScroll(targetId);
         onViewChange("home");
-        // Delay scroll slightly to allow React DOM to render and section to exist
-        setTimeout(() => {
-          const targetId = item.href.slice(1);
-          const element = document.getElementById(targetId);
-          if (element) {
-            const offsetPosition = element.offsetTop - 80; // 80px offset
-            window.scrollTo({
-              top: offsetPosition,
-              behavior: "smooth",
-            });
-          }
-        }, 150);
       } else {
-        const targetId = item.href.slice(1);
-        const element = document.getElementById(targetId);
-        if (element) {
-          const offsetPosition = element.offsetTop - 80;
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: "smooth",
-          });
-        }
+        scrollToSection(targetId);
       }
     } else {
-      if (item.href === "blog") {
-        onSelectBlog(null); // Reset detailed blog reader back to list view
-      }
-      onViewChange(item.href as any);
-      window.scrollTo({
-        top: 0,
-        behavior: "auto",
-      });
+      if (item.href === "blog") onSelectBlog(null);
+      onViewChange(item.href as 'achievements' | 'blog' | 'projects');
+      window.scrollTo({ top: 0, behavior: "auto" });
     }
   };
 
@@ -154,7 +141,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView, onViewChange, onSel
               </a>
             );
           })}
-          
+
           {/* Quick CTA */}
           <a
             href="#contact"

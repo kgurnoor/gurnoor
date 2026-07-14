@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Navbar } from "./components/Navbar";
 import { HeroSection } from "./components/HeroSection";
 import { AboutSection } from "./components/AboutSection";
@@ -14,6 +14,22 @@ import { Blog } from "./types/portfolio";
 export const App: React.FC = () => {
   const [currentView, setCurrentView] = useState<'home' | 'achievements' | 'blog' | 'projects'>('home');
   const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
+  const [pendingScroll, setPendingScroll] = useState<string | null>(null);
+
+  // After switching back to home view, scroll to the pending section target.
+  // requestAnimationFrame ensures the DOM has been painted before reading layout.
+  useEffect(() => {
+    if (currentView === 'home' && pendingScroll) {
+      requestAnimationFrame(() => {
+        const el = document.getElementById(pendingScroll);
+        if (el) {
+          const top = el.getBoundingClientRect().top + window.scrollY - 80;
+          window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+        }
+        setPendingScroll(null);
+      });
+    }
+  }, [currentView, pendingScroll]);
 
   const handleSelectBlog = (blog: Blog | null) => {
     setSelectedBlog(blog);
@@ -29,6 +45,7 @@ export const App: React.FC = () => {
         currentView={currentView}
         onViewChange={setCurrentView}
         onSelectBlog={setSelectedBlog}
+        onPendingScroll={setPendingScroll}
       />
 
       {/* Main Page Layout Conditionally Rendered */}

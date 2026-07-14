@@ -57,7 +57,7 @@ export const HeroSection: React.FC = () => {
           className="inline-flex items-center gap-2 bg-[#121212]/80 border border-zinc-800/80 px-3.5 py-1.5 rounded-full text-xs font-semibold text-zinc-400 tracking-wider mb-6 backdrop-blur-sm"
         >
           <span className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
-          AVAILABLE FOR KEY NOTE COLLABS & SENIOR ROLES
+          OPEN TO WORK · SEEKING FRESHER SDE ROLES & INTERNSHIPS
         </motion.div>
 
         {/* Large Chrome Headline */}
