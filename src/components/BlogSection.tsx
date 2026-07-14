@@ -25,10 +25,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onSelectBlog }) => {
               06 / WRITING & LOGS
             </span>
             <h2 className="text-4xl sm:text-5xl font-extrabold uppercase tracking-tight silver-heading leading-none">
-              WEEKLY
-              <span className="block sm:inline sm:ml-3 text-transparent bg-clip-text bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500">
-                BLOGS.
-              </span>
+              BLOGS.
             </h2>
           </div>
           <p className="text-zinc-400 text-sm max-w-sm tracking-wide">

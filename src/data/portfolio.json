@@ -2,8 +2,8 @@
   "profile": {
     "name": "Gurnoor Kaur",
     "shortName": "Gurnoor",
-    "tagline": "Architecting scalable backend automation and bleeding-edge machine learning pipelines.",
-    "role": "Aspiring Software Engineer",
+    "tagline": "Aspiring SDE & AI Engineer — building production-ready automation systems and intelligent ML pipelines.",
+    "role": "Aspiring SDE & AI Engineer",
     "specialization": "Distributed Systems & Machine Learning",
     "location": "Chandigarh, India",
     "yearsOfExperience": 1,
@@ -74,12 +74,12 @@
       "role": "Automation Engineer Intern",
       "period": "Jan 2026 - July 2026",
       "location": "Gurugram, India",
-      "summary": "Developed Python scripts to automate enterprise workflows, built scalable REST API integrations, and maintained AWS Lambda and serverless solutions for low-latency production workloads.",
+      "summary": "Built and deployed two production AI automation systems — AVA (AI Slack agent) and GH-EMU-ACCESS (GitHub access bot) — within Cvent's Enterprise Services team using Python, AWS Lambda, and Slack Block Kit. Both projects were recognised at All-Hands Q1 2026 and received an A+ grade from my mentor.",
       "highlights": [
-        "Developed Python scripts to automate enterprise workflows, enhancing operational efficiency.",
-        "Built scalable REST API integrations for real-time data exchange across enterprise systems.",
-        "Maintained AWS Lambda and serverless solutions for low-latency production workloads.",
-        "Engineered self-service tools to reduce routine task dependency and accelerate throughput."
+        "Built AVA, an AI Slack agent with a GPT-4o 5-way intent router dispatching to OpenAI, Glean (enterprise search), and Microsoft Graph (room availability), plus a reversible weekly Zoom license audit via EventBridge — recognised at Enterprise Services All-Hands Q1 2026.",
+        "Engineered GH-EMU-ACCESS, a two-phase async Lambda workflow that reduced GitHub EMU access provisioning to a single Slack command with zero manual steps, using HMAC-SHA256 verification and Okta workflow triggers.",
+        "Maintained the #help-glean support channel for 1,200+ members, resolving 60+ Glean tickets across OAuth, Slack actions, and data-source indexing.",
+        "Applied least-privilege IAM roles, environment-driven secrets, and HMAC-SHA256 signature verification across all production serverless services."
       ]
     },
     {
@@ -89,35 +89,56 @@
       "location": "Remote",
       "summary": "Selected from thousands of applicants nationwide for Amazon's highly competitive Machine Learning Summer School, studying industry-grade deep learning curricula.",
       "highlights": [
-        "Selected from thousands of applicants nationwide for Amazon's highly competitive Machine Learning Summer School, demonstrating strong foundational ML and problem-solving skills.",
-        "Completed an intensive, industry-grade curriculum spanning Supervised & Unsupervised Learning, Deep Neural Networks, Generative AI & LLMs, Dimensionality Reduction, Reinforcement Learning, and Causal Inference.",
-        "Engaged with Amazon Scientists in live Q&A sessions, translating research-level ML concepts into practical engineering applications."
+        "One of a small national cohort selected through a highly competitive application process spanning thousands of CS applicants across India.",
+        "Completed an intensive curriculum covering Supervised & Unsupervised Learning, DNNs, Generative AI & LLMs, Dimensionality Reduction, Reinforcement Learning, and Causal Inference.",
+        "Engaged directly with Amazon Scientists in live Q&A sessions, translating research-level ML theory into applied engineering concepts."
       ]
     }
   ],
   "projects": [
     {
       "id": "01",
-      "title": "Market Anomaly Detection Engine",
-      "subtitle": "Financial Market Surveillance System",
-      "description": "Built a real-time financial market surveillance system monitoring 10+ equity tickers using an ensemble of Isolation Forest, LSTM-Autoencoder, and Z-score models with majority-vote consensus, deployed on AWS-compatible serverless infrastructure.",
+      "title": "AVA — AI Slack Agent",
+      "subtitle": "Serverless AI Agent for AV Support at Cvent",
+      "description": "Built AVA, an AI-powered Slack agent for Cvent's AV team. Features a GPT-4o 5-way intent router dispatching to OpenAI (general), Glean (enterprise knowledge), and Microsoft Graph (live room availability), plus 7 slash commands and a reversible weekly Zoom license audit (EventBridge cron, S3-backed audit logs with downgrade/undo/whitelist controls). Recognised at Enterprise Services All-Hands Q1 2026.",
       "stack": [
         "Python",
-        "FastAPI",
-        "scikit-learn",
-        "TensorFlow",
-        "React (Vite)",
-        "TypeScript",
-        "Railway"
+        "AWS Lambda",
+        "Slack Block Kit",
+        "OpenAI / GPT-4o",
+        "Glean API",
+        "Microsoft Graph",
+        "AWS EventBridge",
+        "Amazon S3"
       ],
-      "role": "Solo Creator",
+      "role": "Sole Builder @ Cvent",
       "year": 2026,
-      "github": "https://github.com/kgurnoor/market-anomaly-engine",
+      "github": "",
       "image": "",
       "highlight": true
     },
     {
       "id": "02",
+      "title": "GH-EMU-ACCESS",
+      "subtitle": "Secure GitHub Enterprise Access Automation",
+      "description": "Engineered a secure Slack-to-Lambda workflow at Cvent that auto-provisions authorised users into GitHub Enterprise Managed Users (EMU) via Okta. A two-phase async Lambda pattern returns an instant Slack acknowledgement within the 3-second deadline while completing downstream Okta provisioning asynchronously — reducing a multi-step manual process to a single slash command with zero manual steps. Uses HMAC-SHA256 Slack signature verification, allowlist-based authorization, and CloudWatch audit logging.",
+      "stack": [
+        "Python",
+        "AWS Lambda",
+        "Slack API",
+        "Okta Workflows",
+        "GitHub EMU",
+        "IAM",
+        "CloudWatch"
+      ],
+      "role": "Sole Builder @ Cvent",
+      "year": 2026,
+      "github": "",
+      "image": "",
+      "highlight": true
+    },
+    {
+      "id": "03",
       "title": "AWS Price List Visualizer",
       "subtitle": "Automated Cloud Dataset Visualizer",
       "description": "Built a full-stack system designed to automate extraction and real-time visualization of large AWS pricing datasets across 200+ services, reducing analysis time by ~87% (from 15 to under 2 minutes).",
@@ -136,7 +157,7 @@
       "highlight": true
     },
     {
-      "id": "03",
+      "id": "04",
       "title": "Chat with PDF AI (RAG Pipeline)",
       "subtitle": "Intelligent Context-Aware Query System",
       "description": "Built a retrieval-augmented generation (RAG) pipeline featuring document chunking and vector databases (FAISS / Chroma) for context-aware querying of 100+ PDF documents, cutting search time by ~80%.",
@@ -209,6 +230,34 @@
     }
   ],
   "blogs": [
+    {
+      "slug": "update-jul26",
+      "title": "Six Months Later — The Internship Ends",
+      "date": "July 14, 2026",
+      "summary": "The internship ended on July 10. I drove back to Jalandhar with my parents in the same Ertiga we came in. Six months of production AWS, AI agents, Cyberhub evenings, and learning what it actually means to ship real work. This is what I came back with.",
+      "link": "https://gurnoor.net/blog/update-jul26"
+    },
+    {
+      "slug": "update-jan26",
+      "title": "Gurgaon, Day One",
+      "date": "January 5, 2026",
+      "summary": "Landed in Gurgaon with my family, unpacked a 1 RK in Sector 42, had homemade dinner on the floor, and watched the Aralias and Magnolias light up the night skyline. Office starts January 8th. Mom and Dad leave tomorrow.",
+      "link": "https://gurnoor.net/blog/update-jan26"
+    },
+    {
+      "slug": "update-oct25",
+      "title": "I Got It — Cvent Internship Offer",
+      "date": "October 31, 2025",
+      "summary": "After months of rejections, back-to-back tests, and too many sleepless nights to count — I got the internship. AI & Automation Engineer Intern at Cvent. And it happened on my dad's birthday.",
+      "link": "https://gurnoor.net/blog/update-oct25"
+    },
+    {
+      "slug": "update-aug25",
+      "title": "August Update — Semester 5 & The Internship Race",
+      "date": "August 22, 2025",
+      "summary": "Semester 4 wrapped with a 9.33 SGPA (CGPA 9.31). Semester 5 just kicked off — ToC, Soft Computing, DBMS, SE, and a Minor Project. Meanwhile, the internship hunt is very much on, and it's equal parts grind and anxiety.",
+      "link": "https://gurnoor.net/blog/update-aug25"
+    },
     {
       "slug": "aws-pricelist-visualizer-project",
       "title": "AWS Pricelist Visualizer: My Brand New Project",

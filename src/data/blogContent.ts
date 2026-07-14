@@ -1,4 +1,335 @@
 export const blogContent: Record<string, string> = {
+  "update-jul26": `
+I'm writing this from my bedroom in Kurali, Punjab. My mom made rajma-chawal for lunch. The fan above me is the same one that was here when I left.
+
+It's July 14, 2026. The internship ended four days ago. I'm still processing it.
+
+---
+
+## The Last Day — July 10
+
+I handed over my **MacBook** at 5 PM.
+
+It was assigned to me on my very first day in January — brand new, the kind of machine I'd only ever used for a few hours in a computer lab. For six months, it was my tool, my workspace, my entire coding environment. And on the last day, you slot it back into a box and sign a form and that's that.
+
+I know it's just a laptop. But it felt like something.
+
+My manager **Rohan Kochar** sat with me for a final review session a few days back. He walked through everything I'd built, gave me his honest assessment, and told me things I'll be thinking about for a long time. Good things. The kind of feedback that makes you want to keep working, not just celebrate and leave.
+
+The whole team signed off positively. I got an **A+ grade** from my mentor. I don't know if I've ever been prouder of a piece of work.
+
+---
+
+## The Drive Back
+
+My mom and dad came to pick me up.
+
+We packed everything into an **Ertiga** — same as when I arrived, just in reverse. Six months of clothes, books, random Cyberhub coffee cups I'd collected for no reason, a little box of Dohful cookies I'd bought on my last weekend just to have something from here.
+
+The drive back from Gurgaon to Kurali takes about five and a half hours. We talked the whole way. They asked questions, I answered them. At some point I fell asleep mid-sentence and woke up to the Punjab flatlands outside the window and felt something settle.
+
+---
+
+## What I Actually Built
+
+Let me be honest about the technical journey, because it didn't start clean.
+
+The first task was deceptively simple: connect a **Glean agent** to Slack so that whenever someone tagged **@AVA** in any channel, they'd get back the same response the agent would give in the Glean UI — just without having to leave Slack. Lambda function, a Slack event subscription, call the Glean API, post the response. Done. I finished it faster than expected.
+
+And then the requirements started growing.
+
+Room availability queries. Zoom license audits. General OpenAI responses for things Glean couldn't handle. Slash commands. Whitelisting controls. An EventBridge cron for weekly audits with undo functionality backed by S3. Each new requirement went into the same function, and by the time I looked up, the Lambda was approaching **800 lines** — a single file holding logic for five completely different things, no clear separation, no way to test one piece without touching everything else.
+
+So the real engineering challenge wasn't any individual feature — it was recognising that the code had outgrown its container and doing something about it. I moved AVA into a proper **GitHub repository** with structured modules: separate files for intent routing, each API integration, Slack formatting, and audit logic. Environment-driven configuration. Clean interfaces between layers. What had been one long file became something another engineer could read, extend, and hand off without a walkthrough.
+
+That was the actual lesson: **production code isn't about clever functions. It's about what happens six months later when someone else opens the file.**
+
+AVA was recognised at the **Enterprise Services All-Hands Q1 2026**. And I got written recognition from **Daniel Solbach** — the lead engineer of the AV team based in the US office and the direct stakeholder of the project. That meant more than any grade.
+
+The second project — **GH-EMU-ACCESS** — came from a different kind of problem. Every single day, four or five requests would land in the team's Slack channel: someone needed access to GitHub Enterprise, engineers had to manually hunt through Okta groups, find the right ones, add the user, confirm it was done. Repetitive, time-consuming, and completely automatable. So I built a slash command: one engineer types the username of whoever needs access, hits enter, and the whole provisioning flow runs — HMAC-verified, allowlist-checked, Okta workflows triggered, CloudWatch logged. What used to take manual effort across multiple portals became a single command. I built it, tested it, documented it, and it went live.
+
+My buddy **Mrinal Kanti Mishra** was the person I went to every time I hit something I didn't understand — and I hit plenty. He never made me feel like the question was too small. That mattered more than I expected it to.
+
+---
+
+## Gurgaon Was a Chapter of Its Own
+
+The office was on the **19th and 20th floors**. Floor-to-ceiling windows, the entire NCR skyline visible on a clear day. I spent more than a few lunch breaks just standing at the glass.
+
+The hybrid schedule was **WFH on Monday, Tuesday, Friday** — **WFO on Wednesday and Thursday**. The WFH days I built in the quiet of my room in Sector 42. The WFO days I got dressed, caught the company cab, and walked into a real office building with an access card and everything. Both modes were good, in different ways.
+
+The eateries in and around the building became a small ritual. **Blue Tokai** for the mornings I needed to feel serious. **Dohful** cookies as a reward for finishing something difficult. There was a coffee shop I kept going back to just because the seats were comfortable and the WiFi was fast — **AB Coffee** — and eventually the staff stopped asking for my name because they just knew.
+
+**Cyberhub** is five minutes from the office and I went there more than I planned to. Walked through it on weekdays after work when the crowds were manageable. Went to **Social** on a Friday evening with some new friends and had a genuinely great night. Figured out that Gurgaon has this energy after 7 PM where the whole city collectively decides to be somewhere.
+
+On weekends I had more of the city to myself. I went to **Westside** solo once and bought exactly one thing, spent two hours in there, and left feeling very adult about it. Took a metro to **CP** and walked Janpath and got completely lost and completely okay with that. Made a weekend trip to **Delhi Diaries** and sat there with a journal and a lot of chai.
+
+Somewhere around April I joined a gym near Sector 42. Kept at it through May and June. Morning sessions before WFH days, evening sessions after WFO. It was the most consistent I've been about it in my life, mostly because having a routine in a new city made everything feel less untethered.
+
+---
+
+## The People
+
+This is the part I didn't fully anticipate.
+
+I met people in the company cabs. The cabs in Gurgaon are shared — you get pooled with whoever else lives near your route. I ended up having proper conversations with engineers, analysts, people from all sorts of teams. I learned more about what a career in tech actually looks like day-to-day from those 30-minute commutes than I could have from any amount of LinkedIn browsing.
+
+I met **PEC alumni** in there — people who had walked the same corridors I walk, sat in the same ToC lectures, and somehow ended up here. They gave me advice I didn't ask for but absolutely needed. Real advice. About interviews, about what the first two years out of college actually feel like, about what to prioritize.
+
+I made **new friends inside the team** as well. People I'll stay in touch with. The kind of connections that feel genuine because they were built through work — through debugging together, through cracking jokes in the all-hands meeting chat, through eating lunch at the same table enough times that you just become comfortable.
+
+---
+
+## What I Came Back With
+
+There's the obvious stuff: a stronger understanding of serverless architecture, production IAM, async Lambda patterns, Slack API, enterprise AI integrations.
+
+But the less obvious stuff is what I'm sitting with tonight.
+
+I learned how to **work in a professional environment without a syllabus**. There's no professor telling you which chapters matter this week. You read documentation, ask the right questions, figure it out, and ship. And somehow that's manageable — more manageable than I thought it would be.
+
+I learned that **feedback is a gift when it comes from people who actually want you to grow**. Both Rohan and Mrinal gave me feedback that was specific and honest and useful. I want to carry that into how I work with people going forward.
+
+I learned that I can be **alone in a new city and be okay**. More than okay. I built routines, found my cafes, made my people, navigated a place I'd never been. That is something I will not take for granted.
+
+---
+
+## What's Next
+
+I'm home, but not for long.
+
+**Placements start July 20th.** I'm back to hostel on the 20th — unpacking the bags I just finished unpacking here, setting up the same desk in the same room in Chandigarh, and starting again. It's a little funny. Six days at home, then right back.
+
+DSA is already open on my laptop. CS fundamentals — OS, networks, DBMS, the classics — getting a full refresh. The resume needs updating with everything I actually built. New projects are already taking shape in my head.
+
+The season is real and it starts in less than a week.
+
+But this afternoon I'm having rajma-chawal and sitting under the same fan that was here when I left, and I'm going to let the last six months mean what they mean before I start running again.
+
+I went to Gurgaon a third-year student with a lot to prove.
+
+I came back with proof.
+
+That feels like enough for right now. 🌸
+`,
+
+  "update-jan26": `
+I'm writing this sitting on the floor of my new room in Gurgaon because I haven't figured out where to put the chair yet.
+
+It's January 5, 2026. I made it here.
+
+---
+
+## Sector 42, Gurgaon
+
+We drove down — me, my mom, my dad, and my brother. The bags alone needed a plan: we booked an **Ertiga** to fit everything, because there is no light packing when you're moving cities for six months. The road trip itself was the first real look I got at this place, and Gurgaon does not ease you in gently. It just *is*. Glass towers lit up against the night sky, flyovers stacked on flyovers, lanes of headlights stretching in every direction.
+
+My place is in **Sector 42** — on the backside of the **Aralias**, which means the view is actually pretty good. Those towers are something else up close: DLF's iconic ultra-luxury high-rises, fifty-plus floors of glass and light. I'm obviously not in one of them, but living right behind them gives the skyline outside my window a kind of quiet drama I wasn't expecting.
+
+This is my first time having my own space. A **1 RK** — one room, a kitchen corner, a bathroom. Small. Clean. Mine.
+
+We spent the evening setting everything up — unpacking, making the bed, figuring out where the power sockets are, arguing about whether the curtain rod was level (it wasn't). The ordinary stuff that somehow feels significant when it's the first time.
+
+---
+
+## Dinner in the 1 RK
+
+Mom had carried food from home.
+
+We sat together — all four of us, in that small kitchen space — and had a proper homemade dinner. The kind of dinner that tastes different when you know it's the last one for a while. Nobody said much. We didn't have to.
+
+My brother kept cracking jokes to keep it light. It worked, mostly.
+
+---
+
+## A Little About Cvent
+
+I've been doing my reading, so here's the quick version:
+
+**Cvent** was founded in **1999** by Reggie Aggarwal, an Indian-American entrepreneur, and is headquartered in **Tysons, Virginia, USA**. It's one of the world's leading SaaS platforms for **event management and hospitality technology** — think event registration, venue sourcing, attendee engagement, and everything that goes into running a large-scale corporate event or conference.
+
+Their clients include Fortune 500 companies and large enterprises across industries. The platform processes hundreds of millions in event spend annually. In **2023**, Cvent was acquired by **Blackstone** in a deal valued at approximately **$4.6 billion** — making it one of the larger private equity acquisitions in enterprise SaaS.
+
+Their **Gurgaon office** is one of their major global technology hubs — a significant engineering and services centre. I'll be joining the **Enterprise Services team**, in the IT department. My role: **AI & Automation Engineer Intern**.
+
+I still can't fully believe I get to say that.
+
+---
+
+## What's Coming
+
+Office starts **January 8th**. Three days to settle in, explore a little, figure out where I'm getting my morning chai.
+
+Some things I already know about how the internship works:
+- **Cab allocation** for commute — door-to-door office transport, which is standard for large IT setups here
+- **Lunch provided** at the office
+- A new **team** to meet, a manager to impress, actual production work to do
+
+I want to try the food here — the dhabas, the cafes, the random street stalls. I want to see what Gurgaon looks like in different seasons. I want to meet people who are building things. This city moves fast and I want to move with it.
+
+---
+
+## Tomorrow
+
+Mom, Dad, and my brother leave in the morning.
+
+I'll wake up, we'll have tea, and then they'll take a taxi from here to **IFFCO Chowk** and catch a **NueGo bus** back home. That's the plan. Very simple on paper.
+
+I've been looking forward to this — the independence, the chapter, the city — for so long that I almost forgot this part would feel like anything. But sitting here tonight, all four of us cramped in this little room, it feels like something.
+
+Gurgaon, let's go. 🏙️
+`,
+
+  "update-oct25": `
+I got it.
+
+After everything — the rejections, the tests, the late nights, the doubt — I got it.
+
+This is the blog I didn't let myself write until I was holding the offer in my hands.
+
+---
+
+## The Long Road Before Today
+
+If you read my August update, you know how the past few months looked. Grinding the Striver SDE Sheet at midnight. Sitting through three-hour online assessments after a full day of Semester 5 lectures. Refreshing email at 2 AM. Watching shortlist after shortlist go up and not seeing my name.
+
+I applied everywhere. On-campus, off-campus, referrals, cold applications. I gave tests for companies I'd only half-heard of just to keep the reps up. Some I cleared. Most I didn't. A few I came close — close enough to hurt.
+
+The rejection after rejection thing doesn't get easier. It just gets quieter. You stop announcing you applied. You stop counting. You just keep going.
+
+---
+
+## October 31, 2025 — Cvent Drive Day
+
+Woke up early. Packed my resume printouts, dressed sharp, and walked into my college auditorium by **9 AM**.
+
+Cvent was on campus for **3 roles**. Out of the entire third year — close to **1,000 students** — roughly **80 had cleared their online assessment** to make it to this day. I was one of them, and I was already terrified.
+
+The process: shortlisted → Technical Round 1 → Technical Round 2 → HR. They called names out loud after each round. And each time they read a name, the room held its breath.
+
+---
+
+## The Rounds
+
+Both technical rounds felt like a conversation, not an interrogation. The questions landed squarely in things I'd actually built and studied:
+
+- **AWS Lambda, S3, serverless architecture** — the exact stack I'd been building with
+- **LLMs, RAG pipelines, vector databases** — what I spent months learning
+- **Automation workflows, Python scripting** — my day-to-day
+- **GitHub, version control, collaboration workflows** — second nature by now
+- **Prompt engineering** — something I genuinely enjoy
+
+For possibly the first time in this whole process, I wasn't trying to fake competence. I knew this. I'd *built* this.
+
+---
+
+## The HR Round
+
+The HR round was with the **Director of Enterprise Services** from Cvent's IT department.
+
+She was, genuinely, the warmest person I spoke to that entire day. It wasn't a round designed to trip me up — it was a real conversation. She asked about my goals, my projects, what I wanted to build. I told her honestly.
+
+When I walked out, I didn't know what to think. I just knew it had felt right.
+
+---
+
+## Hearing My Name
+
+When they called names after HR, every person left in the room leaned forward.
+
+They called mine.
+
+The people around me — some I'd barely spoken to before — started cheering. I remember not fully processing it for a second. Then it hit. I had just been sitting in that auditorium since **9 AM**. It was almost **9 PM**.
+
+Twelve hours. Worth every minute.
+
+---
+
+## The Goodies, The T-shirt, The Moment
+
+Because of hostel curfew, the placement cell — **CDGC** — pulled me aside before the formal wrap-up and handed me my Cvent welcome kit early. A **t-shirt, a mug, a diary**. Small things. But I stood there holding them and felt something I hadn't felt in months.
+
+Relief. Real, actual relief.
+
+---
+
+## Dad's Birthday
+
+Here's the part that made the night perfect.
+
+It was my **dad's birthday**.
+
+I called home that night. They were out at dinner celebrating. I sent them pictures — the t-shirt, the mug, the diary, me grinning like an idiot. My parents, who never once made me feel like I wasn't enough during every quiet rejection, got to see this on that exact day.
+
+I don't think I'll forget that phone call for a long time.
+
+---
+
+October 31, 2025 — **AI & Automation Engineer Intern at Cvent**, starting January 2026.
+
+One of the happiest days of my life so far. On to the next chapter. 🧡
+`,
+
+  "update-aug25": `
+Summer's over. Semester 5 just started. And I'm simultaneously the most motivated and most terrified I've ever been. Here's the honest version of August 2025.
+
+---
+
+## Semester 4 Results — 9.33 SGPA
+
+Let's start with the good news.
+
+**SGPA: 9.33 / 10.** Cumulative CGPA now sitting at **9.31**.
+
+I won't pretend it was easy. Semester 4 was heavy — dense theory, back-to-back assessments, side projects running in parallel. But seeing that number made every skipped sleep-in worth it. The consistency is paying off, and I'm holding onto that going into what's shaping up to be the hardest semester yet.
+
+---
+
+## Semester 5 Subjects
+
+Five courses, one minor project, zero chill:
+
+- **Theory of Computation** — automata, grammars, Turing machines. Maths wearing a CS costume.
+- **Soft Computing** — fuzzy logic, neural nets, genetic algorithms. Actually more interesting than I expected.
+- **Software Engineering** — SDLC, design patterns, requirement specs. More real-world than it sounds in the syllabus.
+- **Database Management System** — SQL, normalization, transactions, indexing. Finally a subject that feeds directly into interviews.
+- **Minor Project** — building something real with a team. Exciting and terrifying in equal parts.
+
+Coffee intake has doubled. ToC alone is responsible for at least 40% of that.
+
+---
+
+## The Internship Hunt — Honest Edition
+
+This is the part I wasn't prepared for emotionally.
+
+Semester 6 is the internship semester — **January to July 2026** — and companies are already running their shortlisting cycles. Which means right now I'm juggling:
+
+- 3-hour online assessments after a full day of lectures
+- Daily LeetCode grinds (working through the **Striver SDE Sheet** — arrays, graphs, DP, the whole thing)
+- Technical interview rounds
+- Mid-sem quizzes and assignment deadlines
+- Trying to get seven hours of sleep and consistently failing
+
+And the hardest part isn't the workload. It's watching everyone around you and wondering if you're falling behind. Someone gets a call. Someone clears a round. Someone posts an offer. And you refresh your inbox, close it, and go back to problem 47 of the SDE sheet.
+
+I know comparison is the thief of joy. I've read that enough times. But knowing it doesn't make the 1 AM self-doubt any quieter.
+
+---
+
+## Still Showing Up
+
+Here's what I keep coming back to: **I'm still in the room.**
+
+Every company test — I've submitted. Every shortlist call — I've taken it. Every wrong answer on LeetCode — I've read the editorial and tried again. Some days I'm running on four hours of sleep and pure stubbornness. But I'm showing up, and I'm not stopping.
+
+The internship will come. The work is being done.
+
+---
+
+That's August. Chaotic, exhausting, and somehow still exciting. Back to it. 🤞
+`,
+
   "aws-pricelist-visualizer-project": `
 This is a project log for **AWS Pricelist Visualizer**—my latest fullstack web app. Here’s a breakdown of what I learned and how I brought the idea to life, inspired by my experiences and the documentation style I admire.
 

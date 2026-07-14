@@ -15,9 +15,19 @@ export const App: React.FC = () => {
   const [currentView, setCurrentView] = useState<'home' | 'achievements' | 'blog' | 'projects'>('home');
   const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
   const [pendingScroll, setPendingScroll] = useState<string | null>(null);
+  const [theme, setTheme] = useState<'light' | 'dark'>(() => {
+    return (localStorage.getItem('theme') as 'light' | 'dark') ?? 'light';
+  });
+
+  // Sync theme to <html data-theme> so CSS vars cascade everywhere
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => setTheme(t => t === 'light' ? 'dark' : 'light');
 
   // After switching back to home view, scroll to the pending section target.
-  // requestAnimationFrame ensures the DOM has been painted before reading layout.
   useEffect(() => {
     if (currentView === 'home' && pendingScroll) {
       requestAnimationFrame(() => {
@@ -33,36 +43,26 @@ export const App: React.FC = () => {
 
   const handleSelectBlog = (blog: Blog | null) => {
     setSelectedBlog(blog);
-    if (blog) {
-      setCurrentView('blog');
-    }
+    if (blog) setCurrentView('blog');
   };
 
   return (
-    <div className="relative min-h-screen bg-[#0C0C0C] text-[#E0E0E0] selection:bg-purple-600/30 selection:text-white">
-      {/* Dynamic Sticky Navbar */}
+    <div className="relative min-h-screen transition-colors duration-300" style={{ backgroundColor: 'var(--bg-main)', color: 'var(--text-primary)' }}>
       <Navbar
         currentView={currentView}
         onViewChange={setCurrentView}
         onSelectBlog={setSelectedBlog}
         onPendingScroll={setPendingScroll}
+        theme={theme}
+        toggleTheme={toggleTheme}
       />
 
-      {/* Main Page Layout Conditionally Rendered */}
       {currentView === 'home' && (
         <>
-          {/* Hero Section */}
           <HeroSection />
-
-          {/* Main content body */}
           <main className="relative z-10 w-full">
-            {/* Section 01: About */}
             <AboutSection />
-
-            {/* Section 02: Skills */}
             <SkillsSection />
-
-            {/* Section 03: Career Timeline (Experience) */}
             <ExperienceSection />
           </main>
         </>
@@ -90,7 +90,6 @@ export const App: React.FC = () => {
         </main>
       )}
 
-      {/* Footer (and Contact details) */}
       <Footer />
     </div>
   );
