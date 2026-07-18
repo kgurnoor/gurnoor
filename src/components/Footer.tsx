@@ -65,7 +65,7 @@ export const Footer: React.FC = () => {
           
           <div className="flex flex-col gap-2 mt-2">
             <p className="text-zinc-300 font-semibold text-sm tracking-wide">
-              {profile.specialization}
+              {profile.role}
             </p>
             <p className="text-zinc-500 font-light text-xs uppercase tracking-widest">
               Based in {profile.location}
@@ -73,7 +73,7 @@ export const Footer: React.FC = () => {
           </div>
 
           <p className="text-zinc-400 font-light text-sm leading-relaxed max-w-sm mt-1">
-            Designing resilient modern software systems and highly performant edge network integrations.
+            CS undergrad at PEC Chandigarh building LLM-powered automation and full-stack tools. Open to fresher SDE & AI Engineer roles.
           </p>
         </div>
 
