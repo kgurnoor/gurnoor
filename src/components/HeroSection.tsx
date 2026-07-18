@@ -49,18 +49,6 @@ export const HeroSection: React.FC = () => {
           </div>
         </motion.div>
 
-        {/* Small Intro Badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="inline-flex items-center gap-2 border px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wider mb-6 backdrop-blur-sm"
-          style={{ backgroundColor: 'var(--bg-card)', borderColor: 'var(--border-strong)', color: 'var(--text-3)' }}
-        >
-          <span className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
-          OPEN TO WORK · SEEKING FRESHER SDE & AI ENGINEER ROLES
-        </motion.div>
-
         {/* Large Chrome Headline */}
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
