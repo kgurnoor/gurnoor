@@ -91,7 +91,7 @@ export const HeroSection: React.FC = () => {
         >
           {[
             { value: "9.07", label: "GPA" },
-            { value: "4", label: "Projects" },
+            { value: "4+", label: "Projects" },
             { value: "28+", label: "Technologies" },
             { value: "6 mo", label: "@ Cvent" },
           ].map((s, i, arr) => (
