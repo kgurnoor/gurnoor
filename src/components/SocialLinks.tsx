@@ -15,7 +15,7 @@ export const SocialLinks: React.FC<SocialLinksProps> = ({
 }) => {
   // Filter out empty or undefined social links
   const activeSocials = Object.entries(socials).filter(
-    ([_, value]) => value && value.trim() !== ""
+    ([key, value]) => key !== "website" && value && value.trim() !== ""
   );
 
   if (activeSocials.length === 0) return null;
