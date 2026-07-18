@@ -9,15 +9,15 @@ export const AboutSection: React.FC = () => {
   const stats = [
     {
       icon: <Award className="text-purple-500" size={24} />,
-      label: "Experience",
-      value: `${profile.yearsOfExperience}+ Years`,
-      desc: "Architecting web systems",
+      label: "CGPA",
+      value: "9.07 / 10",
+      desc: "B.Tech CSE · PEC Chandigarh",
     },
     {
       icon: <Compass className="text-pink-500" size={24} />,
       label: "Specialization",
-      value: "Full-Stack SDE",
-      desc: "Distributed Systems & UI/UX",
+      value: "SDE & AI Engineer",
+      desc: "Cloud Automation · LLM Pipelines",
     },
     {
       icon: <MapPin className="text-orange-500" size={24} />,
@@ -54,7 +54,7 @@ export const AboutSection: React.FC = () => {
               Current Focus
             </p>
             <p className="text-sm text-zinc-300 font-medium">
-              Developing high-throughput microservices, local AI workflows, and micro-frontend state layers.
+              Placement season — sharpening DSA, CS fundamentals, and building production-grade AI and cloud projects.
             </p>
           </div>
         </div>

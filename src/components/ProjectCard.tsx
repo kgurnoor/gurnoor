@@ -28,7 +28,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="bg-[#121212] border border-zinc-800/80 rounded-3xl p-6 sm:p-10 flex flex-col md:flex-row gap-8 sm:gap-10 shadow-2xl shadow-black/60 relative group hover:border-zinc-700/60 transition-colors duration-300 overflow-hidden"
+        className="border rounded-3xl p-6 sm:p-10 flex flex-col md:flex-row gap-8 sm:gap-10 shadow-2xl relative group transition-colors duration-300 overflow-hidden"
+        style={{ backgroundColor: 'var(--bg-card)', borderColor: 'var(--border)' }}
       >
         {/* Subtle hover gradient glow on card corners */}
         <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-bl from-purple-500/5 to-transparent rounded-tr-3xl pointer-events-none" />
@@ -112,7 +113,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
             </div>
 
             {/* CTA Link Buttons */}
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-3 items-center">
               {hasLink && (
                 <a
                   href={project.link}
@@ -129,11 +130,21 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                   href={project.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 border border-zinc-800 hover:border-zinc-700 bg-transparent hover:bg-zinc-900/40 text-zinc-300 hover:text-white font-semibold text-xs tracking-widest uppercase px-5 py-3 rounded-full transition-all duration-300 active:scale-95 cursor-pointer"
+                  className="inline-flex items-center gap-2 font-semibold text-xs tracking-widest uppercase px-5 py-3 rounded-full border transition-all duration-300 active:scale-95 cursor-pointer"
+                  style={{ borderColor: 'var(--border-strong)', color: 'var(--text-2)' }}
                 >
                   GITHUB CODE
                   <Github size={14} />
                 </a>
+              )}
+              {!hasLink && (!project.github || project.github.trim() === "") && (
+                <span
+                  className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest px-4 py-2.5 rounded-full border"
+                  style={{ borderColor: 'var(--border)', color: 'var(--text-muted)', backgroundColor: 'var(--bg-card-deep)' }}
+                >
+                  <span className="h-1.5 w-1.5 rounded-full bg-amber-400" />
+                  Cvent Internal · Private Repo
+                </span>
               )}
             </div>
           </div>

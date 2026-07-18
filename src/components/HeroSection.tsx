@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { usePortfolio } from "../hooks/usePortfolio";
 import { SocialLinks } from "./SocialLinks";
-import { ArrowDown, Code2 } from "lucide-react";
+import { ArrowDown, Code2, Download } from "lucide-react";
 
 export const HeroSection: React.FC = () => {
   const { profile } = usePortfolio();
@@ -82,11 +82,35 @@ export const HeroSection: React.FC = () => {
           {profile.tagline}
         </motion.p>
 
-        {/* Social Link Pills */}
+        {/* Quick-scan stats strip */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
+          className="flex flex-wrap justify-center gap-3 mb-8"
+        >
+          {[
+            { value: "9.07", label: "CGPA" },
+            { value: "4", label: "Projects" },
+            { value: "28+", label: "Technologies" },
+            { value: "6 mo", label: "@ Cvent" },
+          ].map((s) => (
+            <div
+              key={s.label}
+              className="flex items-center gap-2 px-4 py-2 rounded-full border text-sm font-semibold backdrop-blur-sm"
+              style={{ backgroundColor: 'var(--bg-card)', borderColor: 'var(--border-strong)' }}
+            >
+              <span className="font-extrabold" style={{ color: 'var(--accent)' }}>{s.value}</span>
+              <span style={{ color: 'var(--text-3)' }}>{s.label}</span>
+            </div>
+          ))}
+        </motion.div>
+
+        {/* Social Link Pills */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
           className="flex justify-center mb-12 w-full"
         >
           <SocialLinks socials={profile.social} className="justify-center" />
@@ -96,7 +120,7 @@ export const HeroSection: React.FC = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
+          transition={{ duration: 0.6, delay: 0.7 }}
           className="flex flex-col sm:flex-row gap-4 justify-center items-center"
         >
           <a
@@ -112,6 +136,15 @@ export const HeroSection: React.FC = () => {
             style={{ borderColor: 'var(--border-strong)', color: 'var(--text-2)' }}
           >
             Get In Touch
+          </a>
+          <a
+            href="/GurnoorKaur_Resume.pdf"
+            download
+            className="flex items-center justify-center gap-2 border font-semibold text-sm tracking-wider uppercase px-8 py-4 rounded-full transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer hover:bg-[var(--bg-card-deep)]"
+            style={{ borderColor: 'var(--border-strong)', color: 'var(--text-2)' }}
+          >
+            <Download size={15} />
+            Resume
           </a>
         </motion.div>
       </div>

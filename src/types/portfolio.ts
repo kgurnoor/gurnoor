@@ -24,6 +24,7 @@ export interface Profile {
 export interface SkillCategory {
   name: string;
   items: string[];
+  confident?: string[];
 }
 
 export interface Experience {

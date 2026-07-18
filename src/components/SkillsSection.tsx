@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { usePortfolio } from "../hooks/usePortfolio";
-import { Cpu, Cloud, Brain, Wrench, CheckCircle } from "lucide-react";
+import { Cpu, Cloud, Brain, Wrench } from "lucide-react";
 
 export const SkillsSection: React.FC = () => {
   const { skills } = usePortfolio();
@@ -79,17 +79,39 @@ export const SkillsSection: React.FC = () => {
                 </h3>
               </div>
 
+              {/* Legend */}
+              <div className="flex items-center gap-4 text-[10px] font-semibold uppercase tracking-widest text-zinc-500">
+                <span className="flex items-center gap-1.5">
+                  <span className="h-1.5 w-1.5 rounded-full bg-pink-500" />
+                  Production-level
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <span className="h-1.5 w-1.5 rounded-full bg-zinc-600" />
+                  Proficient
+                </span>
+              </div>
+
               {/* Skills Badges Wrapper */}
-              <div className="flex flex-wrap gap-2.5 mt-2">
-                {category.items.map((skill) => (
-                  <span
-                    key={skill}
-                    className="inline-flex items-center gap-1.5 bg-[#161616]/80 hover:bg-[#202020] border border-zinc-800 hover:border-zinc-700/60 px-3.5 py-2 rounded-xl text-xs font-bold text-zinc-300 hover:text-white transition-all duration-300 font-mono-custom tracking-wider"
-                  >
-                    <CheckCircle size={10} className="text-zinc-500 group-hover:text-pink-500 transition-colors" />
-                    {skill}
-                  </span>
-                ))}
+              <div className="flex flex-wrap gap-2.5">
+                {category.items.map((skill) => {
+                  const isConfident = category.confident?.includes(skill) ?? false;
+                  return (
+                    <span
+                      key={skill}
+                      className="inline-flex items-center gap-1.5 bg-[#161616]/80 hover:bg-[#202020] border px-3.5 py-2 rounded-xl text-xs font-bold transition-all duration-300 font-mono-custom tracking-wider"
+                      style={{
+                        borderColor: isConfident ? 'rgba(236,72,153,0.35)' : 'rgba(63,63,70,0.8)',
+                        color: isConfident ? 'rgb(249,168,212)' : 'rgb(212,212,216)',
+                      }}
+                    >
+                      <span
+                        className="h-1.5 w-1.5 rounded-full flex-shrink-0"
+                        style={{ backgroundColor: isConfident ? 'rgb(236,72,153)' : 'rgb(82,82,91)' }}
+                      />
+                      {skill}
+                    </span>
+                  );
+                })}
               </div>
             </motion.div>
           ))}

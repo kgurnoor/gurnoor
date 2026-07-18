@@ -38,7 +38,7 @@ export const Footer: React.FC = () => {
   ];
 
   return (
-    <footer id="contact" className="relative w-full bg-[#0C0C0C] pt-24 pb-12 px-6 sm:px-12 border-t border-zinc-900 overflow-hidden">
+    <footer className="relative w-full bg-[#0C0C0C] pt-24 pb-12 px-6 sm:px-12 border-t border-zinc-900 overflow-hidden">
       
       {/* Background neon accent glows */}
       <div className="absolute bottom-0 right-0 w-[400px] h-[300px] bg-gradient-to-tl from-pink-600/5 to-transparent blur-[100px] pointer-events-none" />

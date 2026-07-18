@@ -156,6 +156,15 @@ export const Navbar: React.FC<NavbarProps> = ({
             );
           })}
 
+          {/* Available badge */}
+          <div
+            className="hidden lg:flex items-center gap-1.5 px-3 py-1.5 rounded-full border text-[10px] font-bold uppercase tracking-widest"
+            style={{ backgroundColor: 'var(--bg-card)', borderColor: 'var(--border-strong)', color: 'var(--text-3)' }}
+          >
+            <span className="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse" />
+            Available
+          </div>
+
           {/* CTA */}
           <a
             href="#contact"
