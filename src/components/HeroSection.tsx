@@ -143,14 +143,14 @@ export const HeroSection: React.FC = () => {
             Get In Touch
           </a>
           <a
-            href="/GurnoorKaur_Resume.pdf"
+            href="/GurnoorKaur_Latest_June26.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-center gap-2 border font-semibold text-sm tracking-wider uppercase px-8 py-4 rounded-full transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer hover:bg-[var(--bg-card-deep)]"
             style={{ borderColor: 'var(--border-strong)', color: 'var(--text-2)' }}
           >
             <Download size={15} />
-            Resume
+            Download Resume
           </a>
         </motion.div>
       </div>
