@@ -82,36 +82,12 @@ export const HeroSection: React.FC = () => {
           {profile.tagline}
         </motion.p>
 
-        {/* Quick-scan stats strip */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="flex flex-wrap justify-center gap-3 mb-8"
-        >
-          {[
-            { value: "9.07", label: "CGPA" },
-            { value: "4", label: "Projects" },
-            { value: "28+", label: "Technologies" },
-            { value: "6 mo", label: "@ Cvent" },
-          ].map((s) => (
-            <div
-              key={s.label}
-              className="flex items-center gap-2 px-4 py-2 rounded-full border text-sm font-semibold backdrop-blur-sm"
-              style={{ backgroundColor: 'var(--bg-card)', borderColor: 'var(--border-strong)' }}
-            >
-              <span className="font-extrabold" style={{ color: 'var(--accent)' }}>{s.value}</span>
-              <span style={{ color: 'var(--text-3)' }}>{s.label}</span>
-            </div>
-          ))}
-        </motion.div>
-
         {/* Social Link Pills */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="flex justify-center mb-12 w-full"
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="flex justify-center mb-10 w-full"
         >
           <SocialLinks socials={profile.social} className="justify-center" />
         </motion.div>
@@ -120,8 +96,8 @@ export const HeroSection: React.FC = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.7 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+          transition={{ duration: 0.6, delay: 0.6 }}
+          className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-10"
         >
           <a
             href="#projects"
@@ -146,6 +122,31 @@ export const HeroSection: React.FC = () => {
             <Download size={15} />
             Resume
           </a>
+        </motion.div>
+
+        {/* Stats row — supporting proof below the pitch */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.9 }}
+          className="flex flex-wrap justify-center items-center gap-x-6 gap-y-2"
+        >
+          {[
+            { value: "9.07", label: "GPA" },
+            { value: "4", label: "Projects" },
+            { value: "28+", label: "Technologies" },
+            { value: "6 mo", label: "@ Cvent" },
+          ].map((s, i, arr) => (
+            <React.Fragment key={s.label}>
+              <span className="text-sm">
+                <span className="font-extrabold" style={{ color: 'var(--accent)' }}>{s.value}</span>
+                <span className="ml-1.5 font-medium" style={{ color: 'var(--text-muted)' }}>{s.label}</span>
+              </span>
+              {i < arr.length - 1 && (
+                <span className="hidden sm:block w-px h-3 rounded-full" style={{ backgroundColor: 'var(--border-strong)' }} />
+              )}
+            </React.Fragment>
+          ))}
         </motion.div>
       </div>
 
